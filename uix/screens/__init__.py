@@ -9,16 +9,21 @@ from .task import *
 
 from kivymd.uix.screen import MDScreen
 from kivymd.uix.bottomnavigation import MDBottomNavigation
-from kivymd.uix.bottomnavigation import MDBottomNavigationItem
+from kivymd.uix.bottomnavigation import MDBottomNavigationItem as NavItem
 
 
 class ScreenMain(MDScreen):
     def __init__(self, **kwargs):
-        tree = MDBottomNavigationItem(ScreenTree(), icon='file-tree')
-        matrix = MDBottomNavigationItem(ScreenMatrix(), icon='table')
-        kanban = MDBottomNavigationItem(ScreenKanban(), icon='calendar')
-        pyramid = MDBottomNavigationItem(ScreenPyramid(), icon='pyramid')
+        self.__sm = Scr
+        self.__screen_tree = NavItem(ScreenTree(), icon='file-tree')
+        self.__screen_matrix = NavItem(ScreenMatrix(), icon='table')
+        self.__screen_kanban = NavItem(ScreenKanban(), icon='calendar')
+        self.__screen_pyramid = NavItem(ScreenPyramid(), icon='pyramid')
 
-        navigation = MDBottomNavigation(tree, matrix, kanban, pyramid)
+        self.__navigation = MDBottomNavigation()
+        self.__navigation.add_widget(self.__screen_tree)
+        self.__navigation.add_widget(self.__screen_matrix)
+        self.__navigation.add_widget(self.__screen_kanban)
+        self.__navigation.add_widget(self.__screen_pyramid)
 
-        super().__init__(navigation, **kwargs)
+        super().__init__(self.__navigation, **kwargs)
