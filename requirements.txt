@@ -3,3 +3,4 @@ setuptools==69.0.2
 wheel==0.42.0
 Kivy==2.2.1
 kivymd==1.1.1
+SQLAlchemy==2.0.23

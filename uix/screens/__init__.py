@@ -5,6 +5,8 @@ from .matrix import *
 from .kanban import *
 from .pyramid import *
 
+from .task import *
+
 from kivymd.uix.screen import MDScreen
 from kivymd.uix.bottomnavigation import MDBottomNavigation
 from kivymd.uix.bottomnavigation import MDBottomNavigationItem
