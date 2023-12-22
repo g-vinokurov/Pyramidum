@@ -14,7 +14,6 @@ from kivymd.uix.bottomnavigation import MDBottomNavigationItem as NavItem
 
 class ScreenMain(MDScreen):
     def __init__(self, **kwargs):
-        self.__sm = Scr
         self.__screen_tree = NavItem(ScreenTree(), icon='file-tree')
         self.__screen_matrix = NavItem(ScreenMatrix(), icon='table')
         self.__screen_kanban = NavItem(ScreenKanban(), icon='calendar')

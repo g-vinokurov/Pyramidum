@@ -15,8 +15,8 @@ class PyramidumApp(MDApp):
         self.theme_cls.theme_style = 'Dark'
         self.theme_cls.primary_palette = 'Amber'
 
-        self.__sm = MDScreenManager()
-        self.__sm.add_widget(Screen1(name='screen1'))
+        # self.__sm = MDScreenManager()
+        # self.__sm.add_widget(Screen1(name='screen1'))
 
         return ScreenMain()
 
