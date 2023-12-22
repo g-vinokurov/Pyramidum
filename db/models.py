@@ -14,6 +14,13 @@ task_subtask = Table(
 )
 
 
+class KanbanStatus(BaseModel):
+    __tablename__ = 'kanban_statuses'
+    id = Column(Integer, primary_key=True, autoincrement=True, unique=True)
+    title = Column(String, nullable=False, default='Untitled', unique=True)
+    tasks = relationship('Task', back_populates='kanban_status')
+
+
 class Task(BaseModel):
     __tablename__ = 'tasks'
     id = Column(Integer, primary_key=True, autoincrement=True, unique=True)
@@ -22,6 +29,9 @@ class Task(BaseModel):
     urgent = Column(Boolean, nullable=False, default=True)
     major = Column(Boolean, nullable=False, default=True)
     deadline = Column(DateTime, nullable=True)
+
+    kanban_status_id = Column(Integer, ForeignKey('kanban_statuses.id'))
+    kanban_status = relationship('KanbanStatus', back_populates='tasks')
 
     subtasks = relationship(
         'Task',
